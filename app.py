@@ -22,17 +22,38 @@ def get_gemini_response(input_text, pdf_content, prompt):
     ])
     return response.text
 
+# def input_pdf_setup(uploaded_file):
+#     if uploaded_file is not None:
+#         # Convert PDF to images (requires Poppler installed)
+#         images = pdf2image.convert_from_bytes(
+#             uploaded_file.read(),
+#             poppler_path=r"C://poppler//poppler-25.07.0//Library//bin"   # update this path ✅
+#         )
+#         first_page = images[0]
+#         img_byte_arr = io.BytesIO()
+#         first_page.save(img_byte_arr, format='JPEG')
+#         img_byte_arr = img_byte_arr.getvalue()
+
+#         pdf_parts = [
+#             {
+#                 "mime_type": "image/jpeg",
+#                 "data": base64.b64encode(img_byte_arr).decode()
+#             }
+#         ]
+#         return pdf_parts
+#     else:
+#         raise FileNotFoundError("No file uploaded")
+import fitz  # PyMuPDF
+import base64
+import io
+
 def input_pdf_setup(uploaded_file):
     if uploaded_file is not None:
-        # Convert PDF to images (requires Poppler installed)
-        images = pdf2image.convert_from_bytes(
-            uploaded_file.read(),
-            poppler_path=r"C://poppler//poppler-25.07.0//Library//bin"   # update this path ✅
-        )
-        first_page = images[0]
-        img_byte_arr = io.BytesIO()
-        first_page.save(img_byte_arr, format='JPEG')
-        img_byte_arr = img_byte_arr.getvalue()
+        pdf_data = uploaded_file.read()
+        doc = fitz.open(stream=pdf_data, filetype="pdf")
+        first_page = doc.load_page(0)
+        pix = first_page.get_pixmap()
+        img_byte_arr = pix.tobytes("jpg")
 
         pdf_parts = [
             {
