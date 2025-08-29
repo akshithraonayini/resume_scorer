@@ -66,7 +66,7 @@ def input_pdf_setup(uploaded_file):
 
 # Streamlit UI
 st.set_page_config(page_title="ATS Resume Scorer", page_icon=":guardsman:", layout="wide")
-st.header("ATS Resume Screener :guardsman:")
+st.header("ATS Resume Scorer :guardsman:")
 
 input_text = st.text_area("Enter Job Description: ", key="input_text")
 uploaded_file = st.file_uploader("Upload Resume (PDF only)", type=["pdf"])
