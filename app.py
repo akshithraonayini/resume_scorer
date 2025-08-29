@@ -5,7 +5,6 @@ import os
 import io
 import base64   # FIX ✅
 from PIL import Image
-import pdf2image
 import google.generativeai as genai
 
 # Configure Gemini
