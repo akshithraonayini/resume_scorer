@@ -83,11 +83,11 @@ full stack web development, big data engineering, devops, data analyst.
 Your task is to review the resume against the job description for these profiles.
 Please share your professional evaluation on whether the candidate’s profile 
 highlights the strengths and weaknesses of the applicant in relation to the job description.
-give bullet points.
+give bullet points with just headings.
 """
 input_prompt2 = """
 How can I improve my skills to get a job according to the resume?
-give bullet points.
+give bullet points with just headings.
 """
 input_prompt3 = """
 You are a skilled ATS (Applicant Tracking System) scanner with a deep understanding 
