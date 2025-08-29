@@ -92,7 +92,7 @@ You are a skilled ATS (Applicant Tracking System) scanner with a deep understand
 of data science, full stack web development, big data engineering, devops, data analyst, 
 and ATS functionality. Your task is to compare the resume against the job description 
 and provide a percentage match score based on the relevance of skills, experience, and qualifications.
-First the output should come as percentage, then keywords missing, and finally final thoughts.
+The output should come as percentage.
 """
 
 if submit1:
